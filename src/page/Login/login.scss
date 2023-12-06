@@ -1,0 +1,133 @@
+.login-page {
+  display: flex;
+  min-height: 100vh;
+  &__content {
+    width: 100%;
+    background: #f7f6f9;
+    position: relative;
+    .content {
+      position: absolute;
+      right: 0;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 360px;
+      height: 410px;
+      margin: auto;
+    }
+    .bubble  {
+      position: absolute;
+      top: 25px;
+      right: 45px;
+      width: 282px;
+      height: 112px;
+      border-radius: 20px;
+      background: white;
+      padding: 17px 20px;
+      font-weight: 700;
+      line-height: 25.53px;
+      border: 1px solid #eee;
+      box-sizing: border-box;
+      z-index: 3;
+      > span {
+        color: #7761ff;
+        font-weight: 700;
+      }
+    }
+    .bubble-tail1, .bubble-tail2 {
+      position: absolute;
+      left: 30px;
+      top: calc(100% - 4px);
+      content: "";
+    }
+    .bubble-tail1 {
+      border-top: 9px solid #fff;
+      border-right: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 9px solid #fff;
+      z-index: 2;
+    }
+    .bubble-tail2 {
+      border-top: 9.5px solid #eee;
+      border-right: 9.5px solid transparent;
+      border-bottom: 9.5px solid transparent;
+      border-left: 9.5px solid #eee;
+      z-index: 1;
+    }
+    .cat {
+      position: absolute;
+      right: 110px;
+      bottom: 77px;
+      width: 122px;
+      height: 145px;
+      background: url("/assets/img/cat.svg") no-repeat center;
+    }
+    .line {
+      position: absolute;
+      right: 45px;
+      bottom: 55px;
+      width: 275px;
+      height: 3px;
+      background: url("/assets/img/cat-bar.svg") no-repeat center;
+    }
+    .box1,
+    .box2,
+    .box3 {
+      width: 30px;
+      height: 18px;
+    }
+    .box1 {
+      position: absolute;
+      bottom: 23px;
+      left: 49px;
+      background: url("/assets/img/box1.svg") no-repeat center;
+      z-index: 1;
+    }
+    .box2 {
+      position: absolute;
+      bottom: 12.3px;
+      left: 63px;
+      background: url("/assets/img/box2.svg") no-repeat center;
+      z-index: 0;
+    }
+    .box3 {
+      position: absolute;
+      right: 45px;
+      bottom: 23px;
+      background: url("/assets/img/box2.svg") no-repeat center;
+    }
+  }
+
+  .login {
+    display: flex;
+    width: 464px;
+    padding: 0 72px;
+    padding-bottom: 220px;
+    align-items: flex-end;
+    &__content {
+      width: 100%;
+      .logo {
+        position: relative;
+        margin: 0 auto 111px auto;
+        width: 149px;
+        height: 57.5px;
+        background: url("/assets/img/로고.svg") no-repeat center;
+        span {
+          position: absolute;
+          padding: 4px 6px;
+          line-height: normal;
+          top: 100%;
+          right: -10px;
+          background: #e3deff;
+          border-radius: 8px;
+          color: #272727;
+          font-size: 14px;
+          font-weight: 800;
+        }
+      }
+    }
+    .btn {
+      margin-top: 8px;
+    }
+  }
+}

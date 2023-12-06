@@ -1,16 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
+import '../src/assets/style/index.scss'
+import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+import { QueryClientProvider, QueryClient, QueryCache } from "@tanstack/react-query";
+import { Provider } from "react-redux";
+import store from 'store';
+
+const client = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      throwOnError: true,
+    },
+  },
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
+  <QueryClientProvider client={client}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </QueryClientProvider>
+  </Provider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

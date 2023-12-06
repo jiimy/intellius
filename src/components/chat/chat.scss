@@ -1,0 +1,28 @@
+.chat_input {
+  form {
+    display: flex;
+    gap: 12px;
+    margin: 8px;
+    padding: 4px;
+    border-radius: 24px;
+    background: #F8F8F8;
+  }
+  input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    &:focus-visible {
+      border: none;
+      outline: none;
+    }
+    &::placeholder {
+      font-size: 14px;
+      color: #979797;
+    }
+  }
+}
+.chat-button {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+}
