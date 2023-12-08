@@ -7,12 +7,12 @@ type buttontype = {
   children: React.ReactNode;
   $size?: 'medium' | 'small',
   theme?: 'primary' | 'secondary',
-  full?: boolean,
+  $full?: boolean,
 } & HTMLProps<HTMLButtonElement>;
 
 const StyledButton = styled.button<buttontype>`
   ${(props) =>
-    props.full &&
+    props.$full &&
     css`
       width: 100%;
   `}
@@ -31,10 +31,10 @@ const StyledButton = styled.button<buttontype>`
   `}
 `;
 
-const Button = ({ children, $size = "medium", theme = 'primary', full, onClick, disabled, ...attr }: buttontype) => {
+const Button = ({ children, $size = "medium", theme = 'primary', $full, onClick, disabled, ...attr }: buttontype) => {
   return (
     <StyledButton
-      full={full}
+      $full={$full}
       theme={theme}
       $size={$size}
       {...attr}

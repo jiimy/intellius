@@ -1,6 +1,4 @@
-// import { TokenRefresh } from "api/auth";
 import axios from "axios";
-import { getCookie } from "./authCookie";
 import { ROOT_API } from "constants/api";
 import store from "store";
 
@@ -17,10 +15,6 @@ apiInstance.interceptors.request.use(
       config.headers["Authorization"] = `bearer ${accessToken}`;
       return config;
     }
-    // if (!accessToken && refreshToken) {
-    //   showToast("error", "회원 정보가 만료되었습니다.");
-    //   return config;
-    // }
     return config;
   },
   (error) => {

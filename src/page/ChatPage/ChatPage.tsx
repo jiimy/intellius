@@ -1,11 +1,12 @@
 import Chat from 'components/chat/Chat'
 import ChatList from 'components/chat/ChatList'
-import Header from 'components/header/Header'
+import Header from 'components/header/Header';
+import './chatpage.scss';
 
 const ChatPage = () => {
   return (
-    <div>
-      <Header/>
+    <div className='chat-page'>
+      <Header />
       <ChatList />
       <Chat />
     </div>

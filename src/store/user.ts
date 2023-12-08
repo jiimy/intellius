@@ -5,7 +5,7 @@ type User = {
 };
 
 const initialState: User = {
-  atk: '',
+  atk: "",
 };
 
 export const userSlice = createSlice({
@@ -13,10 +13,10 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     SET_TOKEN: (state, action) => {
-      state.atk = action.payload;
+      state.atk = action.payload.atk;
     },
     DELETE_TOKEN: (state, action) => {
-      state.atk = '';
+      state.atk = "";
     },
   },
 });

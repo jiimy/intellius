@@ -1,15 +1,15 @@
 import apiInstance from "util/useInterceptor";
 
 // 채팅 목록
-export async function getChatListApi(page: number, num?: number ) {
+export async function getChatListApi(page: number, num: number = 10): Promise<any> {
   const res = await apiInstance.get("/chatlogs", {
-    params: {page: page, num: num}
+    params: { page: page, num: num },
   });
   return res;
 }
 
 // 채팅 보내기
-export async function postChatListApi(question: string) {
+export async function postChatListApi(question: string): Promise<any> {
   const res = await apiInstance.post("/chat", {
     question: question,
   });
