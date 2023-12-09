@@ -1,23 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 type Chat = {
-  chatlist: { question: string; answer: string }[];
+  chatState: boolean;
 };
 
 const initialState: Chat = {
-  chatlist: [],
+  chatState: false
 };
 
 export const chatSlice = createSlice({
-  name: "user",
+  name: "chat",
   initialState,
   reducers: {
     SET_CHAT: (state, action) => {
-      const { question, answer } = action.payload;
-      state.chatlist = [...state.chatlist, { question: question, answer: answer }];
+      state.chatState = action.payload;
     },
     DELETE_CHAT: (state, action) => {
-      state.chatlist = [];
+      state.chatState = false;
     },
   },
 });

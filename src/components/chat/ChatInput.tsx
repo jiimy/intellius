@@ -1,5 +1,5 @@
-import { useMutation } from "@tanstack/react-query";
-import { postChatListApi } from "api/chat";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { postChatListApi, setChatListApi } from "api/chat";
 import { MessageButton34 } from "components/images";
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -9,6 +9,7 @@ import "./chat.scss";
 // const ChatInput = ({ setText, onClick }) => {
 const ChatInput = () => {
   const dispatch = useDispatch();
+  const queryClient = useQueryClient();
   const textarea = useRef<HTMLInputElement | null>(null);
   const [inputText, setInputText] = useState("");
   const [inputRock, setInputRock] = useState(false);
@@ -18,7 +19,15 @@ const ChatInput = () => {
     onSuccess: (res: any) => {
       setInputRock(false);
       setInputText("");
-      dispatch(SET_CHAT({ question: res.question, answer: res.answer }))
+      postDbChat.mutate(res);
+    }
+  })
+
+  const postDbChat = useMutation({
+    mutationFn: (data: any) => setChatListApi(data.question, data.answer),
+    onSuccess: (res: any) => {
+      queryClient.invalidateQueries({ queryKey: ["chatlist", { page: 1 }] });
+      dispatch(SET_CHAT(true))
       setTimeout(() => {
         if (textarea.current) {
           textarea?.current.focus();
