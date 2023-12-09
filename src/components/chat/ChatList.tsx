@@ -1,13 +1,12 @@
-import { getChatListApi, setChatListApi } from "api/chat";
+import { useQuery } from "@tanstack/react-query";
+import { getChatListApi } from "api/chat";
 import { ScrollToBottom } from "hooks/useScrollToBottom";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store";
+import { SET_CHAT } from "store/chat";
 import { dayChat } from "util/day";
 import "./chat.scss";
-import isEqual from 'lodash/isEqual';
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { SET_CHAT } from "store/chat";
 
 type data = {
   answer: string
@@ -16,7 +15,6 @@ type data = {
 }
 const ChatList = () => {
   const dispatch = useDispatch();
-  const queryClient = useQueryClient();
   const token = useSelector((state: RootState) => state.user).atk;
   const chatState = useSelector((state: RootState) => state.chat).chatState;
 
